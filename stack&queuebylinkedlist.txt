@@ -34,49 +34,7 @@ struct Stack {
     }
 };
 
-//queue
-struct Queue {
-    Node* front;
-    Node* rear;
-    Queue() { front = rear = nullptr; }
 
-    bool isEmpty() { return front == nullptr; }
-
-    void enqueue(int x) {
-        Node* node = new Node{x, nullptr};
-        if (rear == nullptr) {
-            front = rear = node;
-        } else {
-            rear->next = node;
-            rear = node;
-        }
-    }
-
-    void dequeue() {
-        if (isEmpty()) {
-            cout << "Queue rong!\n"; return;
-        }
-        Node* temp = front;
-        front = front->next;
-        if (front == nullptr) rear = nullptr;
-        delete temp;
-    }
-
-    int peek() {
-        if (isEmpty()) return -1;
-        return front->data;
-    }
-};
-
-int main() {
-    Stack st;
-    st.push(100);
-    st.push(200);
-    cout << "Stack top: " << st.peek() << endl; 
-    st.pop();
-    cout << "Stack top sau pop: " << st.peek() << endl; 
-
-    Queue q;
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
@@ -84,3 +42,4 @@ int main() {
     q.dequeue();
     cout << "Queue front sau dequeue: " << q.peek() << endl; 
 }
+
